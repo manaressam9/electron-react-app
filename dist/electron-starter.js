@@ -25,7 +25,7 @@ function createWindow() {
           slashes: true
         })
       );
-log.info(path.join(__dirname, "index.html"))
+//log.info(path.join(__dirname, "index.html"))
       mainWindow.on("closed", function() {
         mainWindow = null;
       });

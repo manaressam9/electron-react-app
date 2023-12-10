@@ -7,6 +7,5 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 //react entry point
 
 window.onload = function () {
-  console.log("5o");
   _reactDom["default"].render( /*#__PURE__*/_react["default"].createElement(_Layout["default"], null), document.getElementById("root"));
 };
