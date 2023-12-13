@@ -31,7 +31,7 @@ export default class Layout extends Component {
   dataSource :{
     rowCount :null,
     getRows: function(params){
-    
+   var dataObj= fetchData(params.startRow, params.endRow)
   //       setTimeout(function(){
   //         console.log(`start row: ${params.startRow} end row: ${params.endRow}`);
   //       let rowsThisPage =self.state.rowData.slice(params.startRow, params.endRow);
@@ -43,6 +43,7 @@ export default class Layout extends Component {
   //        }  
   //        params.successCallback(rowsThisPage, lastRow)
   //     },100)
+  params.successCallback(dataObj.data, dataObj.lastRow)
     }
   },
       rowModelType: "infinite",
@@ -55,8 +56,8 @@ export default class Layout extends Component {
     };
   }
 
-  componentDidMount(){
-    this.interval = setInterval(() => {
+  // componentDidMount(){
+  //   this.interval = setInterval(() => {
 //      const randomNoOfDataToUpdate = Math.floor(Math.random() * this.state.rowData.length);
 //      //from this number choose random data indecies to update
 //      const randomIndecies =  new Set();
@@ -71,10 +72,27 @@ export default class Layout extends Component {
 //  });
 //  // this.setState({rowData : updatedData})
 // this.state.gridApi.setDatasource(updatedData)
+// console.log("updated")
+//     }, 50)
+//   }
+fetchData = (startRow,endRow) =>{
+    this.interval = setInterval(() => {
+     const randomNoOfDataToUpdate = Math.floor(Math.random() * this.state.rowData.length);
+     //from this number choose random data indecies to update
+     const randomIndecies =  new Set();
+     while(randomIndecies.size < randomNoOfDataToUpdate){
+      randomIndecies.add(Math.floor(Math.random() * this.state.rowData.length))
+     }
+ const updatedData = this.state.rowData.map((item,i) =>{
+  if(randomIndecies.has(i)){
+    return {...item, price: Math.floor(Math.random() * 100000)}
+  }
+  return item;
+ });
+ // this.setState({rowData : updatedData})
 console.log("updated")
     }, 50)
-  }
-
+}
   onGridReady = params => {
     var self = this;
 
