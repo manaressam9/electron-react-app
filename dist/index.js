@@ -7,5 +7,5 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 //react entry point
 
 window.onload = function () {
-  _reactDom["default"].render( /*#__PURE__*/_react["default"].createElement(_Layout["default"], null), document.getElementById("root"));
+  _reactDom["default"].render( /*#__PURE__*/_react["default"].createElement(_react["default"].Fragment, null, /*#__PURE__*/_react["default"].createElement(_Layout["default"], null), /*#__PURE__*/_react["default"].createElement("br", null), /*#__PURE__*/_react["default"].createElement(_Layout["default"], null), /*#__PURE__*/_react["default"].createElement("br", null), /*#__PURE__*/_react["default"].createElement(_Layout["default"], null)), document.getElementById("root"));
 };
